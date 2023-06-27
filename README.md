@@ -1,27 +1,48 @@
-# csgo-object-detection
+## Description
 
-Program using Yolov5 to detect player objects in csgo
+Aimbot using computer vision for object detection on the screen and Arduino Leonardo for mouse emulation.
+
+### Built with
+
+* Python3
+* YOLOv5
+* Arduino Leonardo
 
 ## Preview
 
-![alt text](docs/1.jpg "")
-![alt text](docs/val_batch2_pred.jpg "")
-![alt text](docs/results.png "")
+![alt text](docs/aim_ard.gif "")
+![alt text](docs/aim.gif "") 
 
-## Docs
+## Installation
 
-`main.ipynb` - is used for training custom data.
+1. Clone the repo:
+   ```sh
+   git clone https://github.com/adrolc/cv-aimbot.git
+   ```
+2. Create a venv inside the project and activate it:
+    ```sh
+    python -m venv .venv
+    ```
+    ```sh
+    .venv\script\activate
+    ```
+3. Install [PyTorch](https://pytorch.org/get-started/locally/)
+4. Download [YOLOv5](https://github.com/ultralytics/yolov5/archive/refs/heads/master.zip), extract in the project and rename the folder to yolov5
+5. Install dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+    ```sh
+    pip install -r yolov5\requirements.txt
+    ```
 
-`tools/screenshoter` - program that helps prepare images for training
+## Usage
 
-`model/weights` - my model
-
-`detector` - object detection soft
-
-### How to use
-
-1) (optional) run `main.ipynb` in google colab and load your custom data.
-2) download your generated weights (`best.pt` or `last.pt`) or use mine in the `model/weights`
-3) download yolov5 repo - `git clone https://github.com/ultralytics/yolov5.git`
-4) Install dependencies `pip install -r yolov5/requirements.txt` and `pip install -r requirements.txt`
-5) Run `detector/detector.py`
+1. Upload `mouse/mouse.ino` to arduino leonardo
+2. Set the port and baudrate in `aimbot/aimbot.cfg`
+3. Connect arduino leonardo via usb to pc
+4. Run aimbot:
+    ```sh
+    py aimbot.py
+    ```
+5. Press `v` to calculate the distance of the detected target and shoot
