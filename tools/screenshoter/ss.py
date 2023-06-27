@@ -116,7 +116,8 @@ class Screenshoter:
 
 
 if __name__ == "__main__":
-    ss = Screenshoter((640, 640), (1024, 768))
+    ss = Screenshoter((640, 640), (1920, 1080))
+    # ss = Screenshoter((640, 640), (1024, 768))
     ss.align()
     print(f"Window: {ss.window_size}")
     print(f"Image: {ss.img_size}")

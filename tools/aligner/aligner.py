@@ -1,6 +1,9 @@
 from pathlib import Path
 
 def align(n):
+    """
+    n - what number to start the alignment with
+    """
     path = Path("./images").glob("*")
     files = sorted([x for x in path if x.is_file()], key=lambda path: int(path.stem))
     for i, file in enumerate(files):
@@ -9,5 +12,4 @@ def align(n):
         file.rename(new_name)
 
 if __name__ == "__main__":
-    pass
-    # align(100)
+    align(1)
